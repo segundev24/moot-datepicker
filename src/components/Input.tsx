@@ -6,7 +6,7 @@ import DatepickerContext from "../contexts/DatepickerContext";
 import { dateIsValid, parseFormattedDate } from "../helpers";
 
 import ToggleButton from "./ToggleButton";
-import { ChevronDownIcon, ChevronUpIcon, CloseIcon, DateIcon } from "./utils";
+import { ChevronDownIcon, DateIcon } from "./utils";
 
 type Props = {
     setContextRef?: (ref: React.RefObject<HTMLInputElement>) => void;

@@ -130,7 +130,7 @@ export const BG_COLOR: Colors = {
 
 export const TEXT_COLOR: Colors = {
     500: {
-        blue: "text-blue-500",
+        blue: "text-primary",
         orange: "text-orange-500",
         yellow: "text-yellow-500",
         red: "text-red-500",
