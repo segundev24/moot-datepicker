@@ -218,7 +218,7 @@ const Days: React.FC<Props> = ({
             return cn(
                 baseClass,
                 isDateDisabled(day, type) && "opacity-25 pointer-events-none cursor-not-allowed",
-                "text-gray-400"
+                "text-gray-400 opacity-0"
             );
         },
         [activeDateData, hoverClassByDay, isDateDisabled]
