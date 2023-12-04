@@ -189,7 +189,6 @@ const Calendar: React.FC<Props> = ({
             changeDayHover,
             changePeriod,
             date,
-            hideDatepicker,
             period.end,
             period.start,
             showFooter,
