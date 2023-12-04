@@ -1,12 +1,11 @@
 import dayjs from "dayjs";
 import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 
-import { BORDER_COLOR, DATE_FORMAT, RING_COLOR } from "../constants";
+import { DATE_FORMAT } from "../constants";
 import DatepickerContext from "../contexts/DatepickerContext";
 import { dateIsValid, parseFormattedDate } from "../helpers";
 
-import ToggleButton from "./ToggleButton";
-import { ChevronDownIcon, ChevronUpIcon, CloseIcon, DateIcon } from "./utils";
+import { ChevronDownIcon, DateIcon } from "./utils";
 
 type Props = {
     setContextRef?: (ref: React.RefObject<HTMLInputElement>) => void;
@@ -15,7 +14,6 @@ type Props = {
 const Input: React.FC<Props> = (e: Props) => {
     // Context
     const {
-        primaryColor,
         period,
         dayHover,
         changeDayHover,
@@ -31,7 +29,6 @@ const Input: React.FC<Props> = (e: Props) => {
         disabled,
         inputClassName,
         toggleClassName,
-        toggleIcon,
         readOnly,
         displayFormat,
         inputId,
@@ -54,10 +51,6 @@ const Input: React.FC<Props> = (e: Props) => {
             return classNames.input(input);
         }
 
-        const border = BORDER_COLOR.focus[primaryColor as keyof typeof BORDER_COLOR.focus];
-        const ring =
-            RING_COLOR["second-focus"][primaryColor as keyof (typeof RING_COLOR)["second-focus"]];
-
         const defaultInputClassName =
             "lg:w-[300px] relative transition-all py-2.5 pl-4 pr-14 w-full border-input text-foreground rounded-md tracking-wide font-medium text-sm placeholder-current focus-visible:outline-none disabled:opacity-40 disabled:cursor-not-allowed";
 
@@ -68,7 +61,7 @@ const Input: React.FC<Props> = (e: Props) => {
             : typeof inputClassName === "string" && inputClassName !== ""
             ? inputClassName
             : defaultInputClassName;
-    }, [inputRef, classNames, primaryColor, inputClassName]);
+    }, [inputRef, classNames, inputClassName]);
 
     const handleInputChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -134,17 +127,6 @@ const Input: React.FC<Props> = (e: Props) => {
             }
         },
         [hideDatepicker]
-    );
-
-    const renderToggleIcon = useCallback(
-        (isEmpty: boolean) => {
-            return typeof toggleIcon === "undefined" ? (
-                <ToggleButton isEmpty={isEmpty} isDatePickerOpen={isDatePickerOpen} />
-            ) : (
-                toggleIcon(isEmpty)
-            );
-        },
-        [toggleIcon]
     );
 
     const getToggleClassName = useCallback(() => {

@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 
+import DatepickerContext from "../../contexts/DatepickerContext";
 import { generateArrayNumber } from "../../helpers";
 import { RoundedButton } from "../utils";
-
-import DatepickerContext from "../../contexts/DatepickerContext";
 
 interface Props {
     year: number;
